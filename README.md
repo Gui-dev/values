@@ -1,5 +1,5 @@
 # Valoriza
-## Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe
+<p>Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe</p>
 
 ## Technologies used
   - [Node](https://nodejs.org)
