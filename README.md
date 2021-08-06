@@ -2,10 +2,10 @@
 ## Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe
 
 ## Technologies used
-  - Node
-  - Typescript
-  - Express
-  - JSONWebToken
+  - [Node](https://nodejs.org)
+  - [Typescript](https://www.typescriptlang.org)
+  - [Express](https://expressjs.com)
+  - [JSONWebToken](https://github.com/auth0/node-jsonwebtoken#readme)
 
 
 ## Install dependencies
