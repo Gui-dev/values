@@ -1,9 +1,8 @@
 import { Router } from 'express'
+import { usersRoutes } from '@modules/user/infra/http/routes/users.routes'
 
 const routes = Router()
 
-routes.get('/', (req, res) => {
-  res.send('Hello world')
-})
+routes.use('/users', usersRoutes)
 
 export default routes
