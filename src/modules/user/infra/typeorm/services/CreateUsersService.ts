@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm'
 
 import { UsersRepository } from '@modules/user/infra/typeorm/repositories/UsersRepository'
 import { User } from '../entities/User'
+import { AppError } from '@shared/error/AppError'
 
 interface ICreateUserService {
   name: string
@@ -12,16 +13,15 @@ interface ICreateUserService {
 export class CreateUsersService {
   public async execute ({ name, email, admin }: ICreateUserService): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
-
     const userAlreadyExists = await usersRepository.findOne({ email })
 
     if (!email) {
-      throw new Error('E-mail incorrect')
+      throw new AppError('E-mail incorrect')
     }
 
 
     if (userAlreadyExists) {
-      throw new Error('User already exists')
+      throw new AppError('User already exists', 409)
     }
 
     const user = usersRepository.create({
