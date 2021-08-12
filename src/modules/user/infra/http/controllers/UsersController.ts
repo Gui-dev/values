@@ -1,4 +1,5 @@
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
+import { classToClass } from 'class-transformer'
 
 import { CreateUsersService } from '@modules/user/services/CreateUsersService'
 
@@ -8,6 +9,6 @@ export class UsersController {
     const createUsersService = new CreateUsersService()
     const user = await createUsersService.execute({ name, email, password, admin })
 
-    return response.status(201).json(user)
+    return response.status(201).json(classToClass(user))
   }
 }
