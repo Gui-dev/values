@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { TagsService } from '@modules/tag/infra/typeorm/services/TagsService'
+import { TagsService } from '@modules/tag/services/TagsService'
 
 export class TagsController {
   public async create (request: Request, response: Response): Promise<Response> {

@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm'
 
-import { Tag } from '../entities/Tag'
+import { Tag } from '@modules/tag/infra/typeorm/entities/Tag'
 import { TagsRepository } from '@modules/tag/infra/typeorm/repositories/TagsRepository'
 import { AppError } from '@shared/error/AppError'
 
