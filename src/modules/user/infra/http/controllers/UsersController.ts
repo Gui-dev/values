@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { CreateUsersService } from '@modules/user/infra/typeorm/services/CreateUsersService'
+import { CreateUsersService } from '@modules/user/services/CreateUsersService'
 
 export class UsersController {
   public async create (request: Request, response: Response): Promise<Response> {

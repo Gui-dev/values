@@ -1,7 +1,7 @@
 import { getCustomRepository } from 'typeorm'
 
 import { UsersRepository } from '@modules/user/infra/typeorm/repositories/UsersRepository'
-import { User } from '../entities/User'
+import { User } from '@modules/user/infra/typeorm/entities/User'
 import { AppError } from '@shared/error/AppError'
 
 interface ICreateUserService {
