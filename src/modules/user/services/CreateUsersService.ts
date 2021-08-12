@@ -3,6 +3,7 @@ import { getCustomRepository } from 'typeorm'
 import { UsersRepository } from '@modules/user/infra/typeorm/repositories/UsersRepository'
 import { User } from '@modules/user/infra/typeorm/entities/User'
 import { AppError } from '@shared/error/AppError'
+import { BCryptHashProvider } from '@modules/user/providers/hashProvider/implementations/BCryptHashProvider'
 
 interface ICreateUserService {
   name: string
@@ -15,6 +16,7 @@ export class CreateUsersService {
   public async execute ({ name, email, password, admin }: ICreateUserService): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
     const userAlreadyExists = await usersRepository.findOne({ email })
+    const bCryptHashProvider = new BCryptHashProvider()
 
     if (!email) {
       throw new AppError('E-mail incorrect')
@@ -25,10 +27,12 @@ export class CreateUsersService {
       throw new AppError('User already exists', 409)
     }
 
+    const passwordHash = await bCryptHashProvider.generateHash(password)
+
     const user = usersRepository.create({
       name,
       email,
-      password,
+      password: passwordHash,
       admin
     })
 
