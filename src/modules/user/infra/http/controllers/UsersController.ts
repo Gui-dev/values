@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
 import { CreateUsersService } from '@modules/user/infra/typeorm/services/CreateUsersService'
 
