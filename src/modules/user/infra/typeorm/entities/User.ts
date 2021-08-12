@@ -13,6 +13,9 @@ export class User {
   public email: string
 
   @Column()
+  public password: string
+
+  @Column()
   public admin: boolean
 
   @CreateDateColumn()

@@ -7,11 +7,12 @@ import { AppError } from '@shared/error/AppError'
 interface ICreateUserService {
   name: string
   email: string
+  password: string
   admin: boolean
 }
 
 export class CreateUsersService {
-  public async execute ({ name, email, admin }: ICreateUserService): Promise<User> {
+  public async execute ({ name, email, password, admin }: ICreateUserService): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
     const userAlreadyExists = await usersRepository.findOne({ email })
 
@@ -27,6 +28,7 @@ export class CreateUsersService {
     const user = usersRepository.create({
       name,
       email,
+      password,
       admin
     })
 
