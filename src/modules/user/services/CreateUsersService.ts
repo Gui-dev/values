@@ -13,7 +13,7 @@ interface ICreateUserService {
 }
 
 export class CreateUsersService {
-  public async execute ({ name, email, password, admin }: ICreateUserService): Promise<User> {
+  public async execute ({ name, email, password, admin = false }: ICreateUserService): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
     const userAlreadyExists = await usersRepository.findOne({ email })
     const bCryptHashProvider = new BCryptHashProvider()
