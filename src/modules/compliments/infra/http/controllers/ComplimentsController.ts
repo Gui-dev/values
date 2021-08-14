@@ -4,7 +4,8 @@ import { CreateComplimentsService } from '@modules/compliments/services/CreateCo
 
 export class ComplimentsController {
   public async create (request: Request, response: Response): Promise<Response> {
-    const { user_sender, user_receiver, tag_id, message } = request.body
+    const { user_receiver, tag_id, message } = request.body
+    const user_sender = request.userId
     const createComplimentsService = new CreateComplimentsService()
 
     const compliment = await createComplimentsService.execute({
