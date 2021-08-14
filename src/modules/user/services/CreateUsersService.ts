@@ -22,7 +22,6 @@ export class CreateUsersService {
       throw new AppError('E-mail incorrect')
     }
 
-
     if (userAlreadyExists) {
       throw new AppError('User already exists', 409)
     }
