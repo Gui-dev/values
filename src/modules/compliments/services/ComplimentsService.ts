@@ -1,7 +1,7 @@
 import { getCustomRepository } from 'typeorm'
 
-import { ComplimentsRepository } from '@modules/compliments/infra/typeorm/repositories/ComplimentsRepository'
-import { Compliment } from '@modules/compliments/infra/typeorm/entities/Compliment'
+import { ComplimentsRepository } from '../infra/typeorm/repositories/ComplimentsRepository'
+import { Compliment } from '../infra/typeorm/entities/Compliment'
 import { UsersRepository } from '@modules/user/infra/typeorm/repositories/UsersRepository'
 import { AppError } from '@shared/error/AppError'
 
@@ -11,7 +11,8 @@ type CreateComplimentsServiceProps = {
   tag_id: string
   message: string
 }
-export class CreateComplimentsService {
+
+export class ComplimentsService {
   public async execute (
     { user_sender, user_receiver, tag_id, message }: CreateComplimentsServiceProps
   ): Promise<Compliment> {
@@ -38,5 +39,31 @@ export class CreateComplimentsService {
     await complimentsRepository.save(compliment)
 
     return compliment
+  }
+
+  public async listUserReceiverCompliments (user_receiver: string): Promise<Compliment[]> {
+    const complimentsRepository = getCustomRepository(ComplimentsRepository)
+
+    const compliments = await complimentsRepository.find({
+      where: {
+        user_receiver
+      },
+      relations: ['userSender', 'userReceiver', 'tag']
+    })
+
+    return compliments
+  }
+
+  public async listUserSendCompliments (user_sender: string): Promise<Compliment[]> {
+    const complimentsRepository = getCustomRepository(ComplimentsRepository)
+
+    const compliments = await complimentsRepository.find({
+      where: {
+        user_sender
+      },
+      relations: ['userSender', 'userReceiver', 'tag']
+    })
+
+    return compliments
   }
 }
