@@ -27,4 +27,11 @@ export class TagsService {
 
     return tag
   }
+
+  public async listTags (): Promise<Tag[]> {
+    const tagsRepository = getCustomRepository(TagsRepository)
+    const tags = await tagsRepository.find()
+
+    return tags
+  }
 }
