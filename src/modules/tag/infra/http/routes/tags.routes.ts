@@ -6,6 +6,7 @@ import { ensureAdmin } from '@modules/user/infra/http/middlewares/ensureAdmin'
 const tagsRoutes = Router()
 const tagsController = new TagsController()
 
+tagsRoutes.get('/', ensureAdmin, tagsController.index)
 tagsRoutes.post('/', ensureAdmin, tagsController.create)
 
 export {
