@@ -7,6 +7,9 @@ const complimentsController = new ComplimentsController()
 
 complimentsRoutes.post('/', complimentsController.create)
 
+complimentsRoutes.get('/users/compliments/send', complimentsController.showUserSendCompliments)
+complimentsRoutes.get('/users/compliments/receiver', complimentsController.showUserReceiverCompliments)
+
 export {
   complimentsRoutes
 }
