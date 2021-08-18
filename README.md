@@ -49,22 +49,22 @@ GET /users
 POST /tags
 ```
 
-```
+```bash
 GET /tags
 ```
 
 <p>Create compliments and list compliments</p>
 
 ```bash
-POST '/compliments'
+POST /compliments
 ```
 
 ```bash
-GET '/compliments/users/compliments/receiver'
+GET /compliments/users/compliments/receiver
 ```
 
 ```bash
-GET '/compliments/users/compliments/send'
+GET /compliments/users/compliments/send
 ```
 
 ## 📄 Licença
