@@ -25,23 +25,47 @@
 ### Request
 
 <p>Create a new user</p>
-`POST /users`
+
+```bash
+POST /users
+```
 
 <p>Login</p>
-`POST /login`
+
+```bash
+POST /login
+```
 
 #### Authenticated Routes
 <p>List users</p>
-`GET /users`
+
+```bash
+GET /users
+```
 
 <p>Create and list tags</p>
-`POST /tags`
-`GET /tags`
+
+```bash
+POST /tags
+```
+
+```
+GET /tags
+```
 
 <p>Create compliments and list compliments</p>
-`POST '/compliments'`
-`GET '/compliments/users/compliments/receiver'`
-`GET '/compliments/users/compliments/send'`
+
+```bash
+POST '/compliments'
+```
+
+```bash
+GET '/compliments/users/compliments/receiver'
+```
+
+```bash
+GET '/compliments/users/compliments/send'
+```
 
 ## 📄 Licença
 
