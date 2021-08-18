@@ -12,7 +12,7 @@ interface ICreateUserService {
   admin: boolean
 }
 
-export class CreateUsersService {
+export class UsersService {
   public async execute ({ name, email, password, admin = false }: ICreateUserService): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository)
     const userAlreadyExists = await usersRepository.findOne({ email })
@@ -38,5 +38,12 @@ export class CreateUsersService {
     await usersRepository.save(user)
 
     return user
+  }
+
+  public async listUsers (): Promise<User[]> {
+    const usersRepository = getCustomRepository(UsersRepository)
+    const users = await usersRepository.find()
+
+    return users
   }
 }
