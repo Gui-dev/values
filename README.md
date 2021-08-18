@@ -9,6 +9,7 @@
   - [Node](https://nodejs.org)
   - [Typescript](https://www.typescriptlang.org)
   - [Express](https://expressjs.com)
+  - [Typeorm](https://typeorm.io)
   - [JSONWebToken](https://github.com/auth0/node-jsonwebtoken#readme)
 
 # 🚀 How to run
@@ -21,14 +22,26 @@
 ## Run the app
   yarn dev
 
-<!-- ### Request
+### Request
 
-`POST /settings`
+<p>Create a new user</p>
 `POST /users`
-`POST /messages`
-`GET /messages/:user_id`
-`GET '/pages/client'`
-`GET '/pages/admin'` -->
+
+<p>Login</p>
+`POST /login`
+
+#### Authenticated Routes
+<p>List users</p>
+`GET /users`
+
+<p>Create and list tags</p>
+`POST /tags`
+`GET /tags`
+
+<p>Create compliments and list compliments</p>
+`POST '/compliments'`
+`GET '/compliments/users/compliments/receiver'`
+`GET '/compliments/users/compliments/send'`
 
 ## 📄 Licença
 
